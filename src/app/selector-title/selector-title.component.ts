@@ -12,22 +12,26 @@ import { MovieService } from '../service/movie.service';
 export class SelectorTitleComponent  {
   movies: Movie[] ;
   title =  new FormControl('');
+  hasResults = false;
+  favorites=[];
 
   constructor(private movieService: MovieService ) {}
 
   getMovies(title){
+    this.hasResults = false;
     this.movieService.getByTitle(title.value).subscribe(data =>{
-      console.log(data['Response']);
       if (data['Response']=="True"){
         this.movies=data['Search'];
-        console.log("+++true")
-        }
-        else {
-          console.log("- false")
+        this.hasResults = true;
         }
     });
   }
-  alerta (){
-    alert("up");
+
+  addFavorite(title){
+    this.favorites.push(title.value);
+  }
+
+  getDetails(movieDetails){
+    console.log(movieDetails);
   }
 }

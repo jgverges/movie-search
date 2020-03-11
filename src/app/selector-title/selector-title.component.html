@@ -2,21 +2,23 @@
 <p>Search by title </p>
 <input type="text" [formControl]="title" (keyup)="getMovies(title)" placeholder="Search...">
 
-<button (click)="getMovies(title)" >Search</button>
+<button  (click)="addFavorite(title)">Marcar</button>
 <br>
+<p>Your 3 most favorite searches {{favorites[0]}}</p>
+<ul class="favorites" >
+    <li *ngFor="let favorite of favorites">
+        {{favorite}}
+    </li>
+</ul>
+<hr>
+
+
 <h3>Search results</h3>
 
-<ul *ngFor="let movie of movies">
-    <li >{{movie.Title}}</li>
+<ul class="results" *ngFor="let movie of movies">
+    <li *ngFor="let movie of movies">
+        <a (click)="getDetails(movie.Title)">
+            <span class="detailList"> {{movie.Title}}</span>
+        </a>
+    </li>
 </ul>
-
-<!-- <div  >
-    <p>
-        <select name="miselect" [formControl]="seleccionado">
-            <option [value]="item" *ngFor="let item  of borrar">{{item}}</option>
-        </select>
-        </p>
-        <p>movie22 seleccionada= </p> 
-       {{seleccionado}}
-</div>
- -->
