@@ -6,12 +6,14 @@ import { ReactiveFormsModule} from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { SelectorTitleComponent } from './selector-title/selector-title.component';
+import { SearchResultComponent } from './search-result/search-result.component';
 /* import { from } from 'rxjs';
  */
 @NgModule({
   declarations: [
     AppComponent,
-    SelectorTitleComponent
+    SelectorTitleComponent,
+    SearchResultComponent
   ],
   imports: [
     BrowserModule,

@@ -1,16 +1,15 @@
 
 <p>Search by title </p>
-<input type="text" [formControl]="title" placeholder="Search...">
+<input type="text" [formControl]="title" (keyup)="getMovies(title)" placeholder="Search...">
 
 <button (click)="getMovies(title)" >Search</button>
-{{title.value}}
-<!-- getMovies(title)  -->
-{{searchResult}}
-<br><br>
-<!-- <ul>
-    <li *ngFor=></li>
+<br>
+<h3>Search results</h3>
+
+<ul *ngFor="let movie of movies">
+    <li >{{movie.Title}}</li>
 </ul>
- -->
+
 <!-- <div  >
     <p>
         <select name="miselect" [formControl]="seleccionado">
