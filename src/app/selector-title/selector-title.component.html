@@ -1,0 +1,23 @@
+
+<p>Search by title </p>
+<input type="text" [formControl]="title" placeholder="Search...">
+
+<button (click)="getMovies(title)" >Search</button>
+{{title.value}}
+<!-- getMovies(title)  -->
+{{searchResult}}
+<br><br>
+<!-- <ul>
+    <li *ngFor=></li>
+</ul>
+ -->
+<!-- <div  >
+    <p>
+        <select name="miselect" [formControl]="seleccionado">
+            <option [value]="item" *ngFor="let item  of borrar">{{item}}</option>
+        </select>
+        </p>
+        <p>movie22 seleccionada= </p> 
+       {{seleccionado}}
+</div>
+ -->
