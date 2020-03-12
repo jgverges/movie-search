@@ -82,10 +82,6 @@ html {
     color: #333;
     margin-bottom: 30px;
   }
-  img {
-    width: 200px;
-    height: auto;
-  }
   .navbar-light .navbar-nav .nav-link {
     color: #656565;
   }
@@ -359,6 +355,9 @@ html {
   
   footer {
     margin-bottom: 35px;
+    display:block !important;
+    position: absolute !important;
+    bottom: 20px;
   }
   
   .custom-select {

@@ -14,4 +14,5 @@ export class MovieService {
   getByTitle(title:string):Observable<Movie> {
     return this.http.get<Movie>('http://www.omdbapi.com/?apikey=90493536&s='+title);
   }
+  
 }

@@ -6,5 +6,8 @@ export class Movie{
     imdbID: string;
     Type:string;
     Poster:string;
-
+    Genr:string;
+    Director:string;
+    Writer:string;
+    Actors:string;
 }
