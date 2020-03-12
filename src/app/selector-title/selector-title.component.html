@@ -3,7 +3,9 @@
         <div id="search" class="col-md-6">
             <p>Search by title </p>
             <input type="text" [formControl]="title" (keyup)="getMovies(title)" placeholder="Search...">
-            <button  type="button" class="btn btn-primary btn-sm" (click)="addFavorite(title)">Marcar</button>
+            <button  id="favoriteButton" type="button" class="btn btn-info btn-sm" (click)="addFavorite(title)">
+                <span id="starIcon">✩</span>    
+            </button>
         </div>
         <div id="favoriteSearch" class="col-md-6">
             <p>Your 3 most favorite searches {{favorites[0]}}</p>

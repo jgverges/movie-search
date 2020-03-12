@@ -15,7 +15,10 @@ export class SelectorTitleComponent  {
   details: Movie;
   title =  new FormControl('');
   hasResults = false;
-  favorites=[];
+  favorites:[{
+    favWord:string;
+    countWord:number;
+  }]; 
 
   constructor(private movieService: MovieService,
               private detailService:DetailService ) {}
@@ -31,7 +34,10 @@ export class SelectorTitleComponent  {
   }
 
   addFavorite(title){
-    if (this.hasResults)  this.favorites.push(title.value);
+    if (this.hasResults)  {
+      this.favorites[0].favWord=title.value;
+      this.favorites[0].countWord=1;
+    };
   }
 
   getDetails(imdbID){
