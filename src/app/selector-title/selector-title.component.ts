@@ -15,10 +15,7 @@ export class SelectorTitleComponent  {
   details: Movie;
   title =  new FormControl('');
   hasResults = false;
-  favorites:[{
-    favWord:string;
-    countWord:number;
-  }]; 
+  favorites=[];
 
   constructor(private movieService: MovieService,
               private detailService:DetailService ) {}
@@ -32,11 +29,19 @@ export class SelectorTitleComponent  {
         }
     });
   }
+  /* to do: json */
+  sortJSON(data, key) {
+    return data.sort(function (a, b) {
+        var x = a[key],
+        y = b[key];
+        return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+        
+    });
+  };
 
   addFavorite(title){
     if (this.hasResults)  {
-      this.favorites[0].favWord=title.value;
-      this.favorites[0].countWord=1;
+      this.favorites.push(title.value)
     };
   }
 
