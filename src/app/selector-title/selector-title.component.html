@@ -1,32 +1,44 @@
-<div id="search">
-    <p>Search by title </p>
-    <input type="text" [formControl]="title" (keyup)="getMovies(title)" placeholder="Search...">
-    <button  type="button" class="btn btn-primary" (click)="addFavorite(title)">Marcar</button>
-</div>
-<div id="favoriteSearch">
-    <p>Your 3 most favorite searches {{favorites[0]}}</p>
-    <ul class="favorites" >
-        <li *ngFor="let favorite of favorites">
-            {{favorite}}
-        </li>
-    </ul>
-</div>
-<div id="results">
-    <h3>Search results</h3>
-    <ul class="results" >
-        <li *ngFor="let movie of movies">
-            <a (click)="getDetails(movie.imdbID)">
-                <span class="detailList"> 
-                    {{movie.Title}}
-                </span>
-            </a>
-        </li>
-    </ul>
-</div>
-<div id="details">
-    <div *ngIf="details">
-        <p>{{details.Title}}</p>
-        <p>Year:{{details.Year}}  </p> 
-        <img src="{{details.Poster}}" alt="" height="200px">
+<div >
+    <div class="row mt-3">
+        <div id="search" class="col-md-6">
+            <p>Search by title </p>
+            <input type="text" [formControl]="title" (keyup)="getMovies(title)" placeholder="Search...">
+            <button  type="button" class="btn btn-primary btn-sm" (click)="addFavorite(title)">Marcar</button>
+        </div>
+        <div id="favoriteSearch" class="col-md-6">
+            <p>Your 3 most favorite searches {{favorites[0]}}</p>
+            <div class="row justify-content-between">
+                <div class="col-md-4  bg-danger favoriteCell">{{favorites[0]}}</div>
+                <div class="col-md-3  bg-danger favoriteCell">{{favorites[1]}}</div>
+                <div class="col-md-4 bg-danger favoriteCell">{{favorites[2]}}</div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div id="results" class="col-md-6">
+            <h2>Search results</h2>
+            <ul class="results" >
+                <li *ngFor="let movie of movies">
+                    <a (click)="getDetails(movie.imdbID)">
+                        <span class="detailList"> 
+                            {{movie.Title}}
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div id="details" class="col-md-6">
+            <div>
+                <div *ngIf="details">
+                    <div class="row ">
+                        <img src="{{details.Poster}}" alt="details Poster" height="200px">
+                    </div>
+                    <hr class="m-0">
+                    <p><b>Title: </b> {{details.Title}}</p>
+                    <p><b>Year: </b> {{details.Year}}  </p> 
+                    
+                </div>
+            </div>
+        </div><!-- details -->
     </div>
 </div>

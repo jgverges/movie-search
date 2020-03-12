@@ -1,14 +1,22 @@
-#search{}
+#search{}  ///////
 
-#favoriteSearch {}
+#favoriteSearch {}  ///
 
-#results {
+/* #results {
     border:1px solid blue;
     height: 400px;
 }
-#details {
-    border:1px solid blue;
+ */#details {
     height: 400px;
     background: #ddd;
+
+}
+img {
+    margin:30px auto;
+    width: auto;
+}
+.favoriteCell {
+    height: 50px;
+    width: auto;
 
 }

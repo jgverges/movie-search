@@ -15,7 +15,6 @@ export class SelectorTitleComponent  {
   details: Movie;
   title =  new FormControl('');
   hasResults = false;
-  hasDetails=false;
   favorites=[];
 
   constructor(private movieService: MovieService,
@@ -32,12 +31,10 @@ export class SelectorTitleComponent  {
   }
 
   addFavorite(title){
-    this.favorites.push(title.value);
+    if (this.hasResults)  this.favorites.push(title.value);
   }
 
   getDetails(imdbID){
-/*     hasDetails=false;
- */
     this.detailService.getByImdbIDd(imdbID).subscribe(data =>{
       if (data['Response']=="True"){
         this.details=data;
