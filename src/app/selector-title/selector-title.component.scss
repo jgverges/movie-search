@@ -1,18 +1,17 @@
-#search{}  ///////
 
-#favoriteSearch {}  ///
-
-/* #results {
+#searchResults {
     border:1px solid blue;
-    height: 400px;
+    height: 350px;
+    overflow: scroll;
+
 }
- */#details {
-    height: 400px;
+#details {
+    height: 350px;
     background: #ddd;
 
 }
 img {
-    margin:30px auto;
+    margin:10px auto;
     width: auto;
 }
 .favoriteCell {
