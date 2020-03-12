@@ -3,8 +3,8 @@ import { FormControl } from '@angular/forms';
 /* owns */
 import { Movie } from '../model/movie';
 import { MovieService } from '../service/movie.service';
-import { DetailService } from '../service/detail.service';
-
+/* import { DetailService } from '../service/detail.service';
+ */
 
 @Component({
   selector: 'app-search',
@@ -18,8 +18,8 @@ export class SearchComponent  {
   hasResults = false;
   favorites=[];
 
-  constructor(private movieService: MovieService,
-              private detailService:DetailService ) {}
+  constructor(private movieService: MovieService /* ,
+              private detailService:DetailService  */) {}
 
   getMovies(title){
     this.hasResults = false;
@@ -47,7 +47,7 @@ export class SearchComponent  {
   }
 
   getDetails(imdbID){
-    this.detailService.getByImdbIDd(imdbID).subscribe(data =>{
+    this.movieService.getByImdbIDd(imdbID).subscribe(data =>{
       if (data['Response']=="True"){
         this.details=data;
         console.log(this.details.Title);
