@@ -1,24 +1,32 @@
-
-<p>Search by title </p>
-<input type="text" [formControl]="title" (keyup)="getMovies(title)" placeholder="Search...">
-
-<button  (click)="addFavorite(title)">Marcar</button>
-<br>
-<p>Your 3 most favorite searches {{favorites[0]}}</p>
-<ul class="favorites" >
-    <li *ngFor="let favorite of favorites">
-        {{favorite}}
-    </li>
-</ul>
-<hr>
-
-
-<h3>Search results</h3>
-
-<ul class="results" *ngFor="let movie of movies">
-    <li *ngFor="let movie of movies">
-        <a (click)="getDetails(movie.Title)">
-            <span class="detailList"> {{movie.Title}}</span>
-        </a>
-    </li>
-</ul>
+<div id="search">
+    <p>Search by title </p>
+    <input type="text" [formControl]="title" (keyup)="getMovies(title)" placeholder="Search...">
+    <button  type="button" class="btn btn-primary" (click)="addFavorite(title)">Marcar</button>
+</div>
+<div id="favoriteSearch">
+    <p>Your 3 most favorite searches {{favorites[0]}}</p>
+    <ul class="favorites" >
+        <li *ngFor="let favorite of favorites">
+            {{favorite}}
+        </li>
+    </ul>
+</div>
+<div id="results">
+    <h3>Search results</h3>
+    <ul class="results" >
+        <li *ngFor="let movie of movies">
+            <a (click)="getDetails(movie.imdbID)">
+                <span class="detailList"> 
+                    {{movie.Title}}
+                </span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="details">
+    <div *ngIf="details">
+        <p>{{details.Title}}</p>
+        <p>Year:{{details.Year}}  </p> 
+        <img src="{{details.Poster}}" alt="" height="200px">
+    </div>
+</div>

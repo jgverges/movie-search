@@ -3,8 +3,8 @@ export class Movie{
 
     Title:string;
     Year:string;
-    imbdID: string;
-    TYpe:string;
+    imdbID: string;
+    Type:string;
     Poster:string;
 
 }

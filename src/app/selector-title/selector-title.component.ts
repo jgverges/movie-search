@@ -3,6 +3,7 @@ import { FormControl } from '@angular/forms';
 /* owns */
 import { Movie } from '../model/movie';
 import { MovieService } from '../service/movie.service';
+import { DetailService } from '../service/detail.service';
 
 @Component({
   selector: 'app-selector-title',
@@ -11,11 +12,14 @@ import { MovieService } from '../service/movie.service';
 })
 export class SelectorTitleComponent  {
   movies: Movie[] ;
+  details: Movie;
   title =  new FormControl('');
   hasResults = false;
+  hasDetails=false;
   favorites=[];
 
-  constructor(private movieService: MovieService ) {}
+  constructor(private movieService: MovieService,
+              private detailService:DetailService ) {}
 
   getMovies(title){
     this.hasResults = false;
@@ -31,7 +35,14 @@ export class SelectorTitleComponent  {
     this.favorites.push(title.value);
   }
 
-  getDetails(movieDetails){
-    console.log(movieDetails);
+  getDetails(imdbID){
+/*     hasDetails=false;
+ */
+    this.detailService.getByImdbIDd(imdbID).subscribe(data =>{
+      if (data['Response']=="True"){
+        this.details=data;
+        console.log(this.details.Title);
+        }
+    });
   }
 }
