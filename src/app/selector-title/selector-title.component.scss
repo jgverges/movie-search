@@ -17,5 +17,12 @@ img {
 .favoriteCell {
     height: 50px;
     width: auto;
-
+}
+#searchResults .results li {
+    list-style-type:none;
+    border-bottom: 1px solid ;
+    margin-top: 5px;
+}
+#searchResults .results li:hover {
+    background: rgb(255, 240, 222);
 }
