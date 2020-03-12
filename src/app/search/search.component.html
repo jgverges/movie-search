@@ -1,1 +1,120 @@
-<p>search works!</p>
+
+<div id="reportsPage" class="bg02">
+    <div class="" id="home">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 ">
+
+                    <h1 class="tm-site-title mb-0 mt-3">Movie Search Application</h1>
+
+
+                    <nav class="navbar navbar-expand-xl navbar-light bg-light mt-3">
+                       
+                        <div id="search" class="col-md-6">
+                            <p>Search by title </p>
+                            <div class="input-group mb-3">
+                                <input  [formControl]="title" (keyup)="getMovies(title)" placeholder="Search..."type="text" class="form-control" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                <div class="input-group-append">
+                                  <span (click)="addFavorite(title)" class="input-group-text" id="basic-addon2">
+                                      <i class="material-icons"> star_border </i>
+                                </span>
+                                </div>
+                              </div>
+<!--                             <input type="text" [formControl]="title" (keyup)="getMovies(title)" placeholder="Search...">
+                            <button  id="favoriteButton" type="button" class="btn btn-info btn-sm" (click)="addFavorite(title)">
+                                <span id="starIcon">✩</span>    
+                            </button>
+ -->                        </div>
+                
+
+                        <button class="navbar-toggler ml-auto mr-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <p>Your 3 most favorite searches </p>
+
+                            <ul class="navbar-nav mx-auto">
+                                <li class="nav-item ">
+                                    <a class="nav-link" href="#">{{favorites[0]}}</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">{{favorites[1]}}</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">{{favorites[2]}}</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+            <!-- row -->
+            <div class="row tm-content-row tm-mt-big">
+                <div class="col-xl-8 col-lg-12 tm-md-12 tm-sm-12 tm-col">
+                    <div class="bg-white tm-block h-100">
+                        <div class="row">
+                            <div class="col-md-8 col-sm-12">
+                                <h2 class="tm-block-title d-inline-block">Search results</h2>
+                            </div>
+                        </div>
+                        <div class="table-responsive" id="searchResults">
+                            <table class="table table-hover table-striped tm-table-striped-even mt-3">
+                                <tbody>
+                                    <tr *ngFor="let movie of movies" >
+                                        <td class="tm-product-name" (click)="getDetails(movie.imdbID)">
+                                            <span class="detailList"> 
+                                                {{movie.Title}}
+                                            </span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-4 col-lg-12 tm-md-12 tm-sm-12 tm-col">
+                    <div class="bg-white tm-block h-100">
+                        <h2 class="tm-block-title d-inline-block">detail</h2>
+                        <div *ngIf="details">
+                            <div class="row  justify-content-center" id="poster">
+                                <img src="{{details.Poster}}" alt="details Poster" height="200px">
+                            </div>
+                                    <table  id="details" class="table table-hover table-striped mt-3">
+                                <tbody>
+                                    <tr>
+                                        <td><b>Title: </b> {{details.Title}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Year: </b> {{details.Year}} </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer class="row tm-mt-small">
+                <div class="col-12 font-weight-light">
+                    <p class="d-inline-block tm-bg-black text-white py-2 px-4">
+                        Created by Jordi González Vergés | email: jgverges@yahoo.es |telf: 647890286 
+                    </p>
+                </div>
+            </footer>
+            </div>
+    </div>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <!-- https://jquery.com/download/ -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- https://getbootstrap.com/ -->
+    <script>
+        $(function () {
+            $('.tm-product-name').on('click', function () {
+                window.location.href = "edit-product.html";
+            });
+        })
+    </script>
+</div>
