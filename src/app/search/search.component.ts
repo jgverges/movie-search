@@ -15,11 +15,12 @@ export class SearchComponent  {
   title =  new FormControl('');
   hasResults:boolean = false;
   starOn:boolean= false;
-  favorites: Array<{name:string,count:number}>= [{name:"casa",count:2},{name:"era",count:1},{name:"",count:null}];
+  addItem:boolean= false;
+  favorites: Array<{name:string,count:number}>= [{name:"",count:null},{name:"",count:null},{name:"",count:null}];
 
   constructor(private movieService: MovieService ) {}
 
-  getMovies(title){
+  getMovies(title:any){
     this.hasResults = false;
     this.starOn= false;
     this.movieService.getByTitle(title.value).subscribe(data =>{
@@ -28,60 +29,47 @@ export class SearchComponent  {
         this.hasResults = true;
         }
     });
+    if (this.hasResults){
+      this.addItem=false;
+      this.incresasesFavorites(title);
+      }
   }
-  getDetails(imdbID){
+
+  getDetails(imdbID:string){
     this.movieService.getByImdbIDd(imdbID).subscribe(data =>{
       if (data['Response']=="True"){
         this.details=data;
-        console.log(this.details.Title);
         }
     });
   }
-  addFavorite(title){  
-    let fav= title.value;//
+
+  addFavorite(title:any){  
+    this.addItem=true;
+    this.incresasesFavorites(title);
+  }
+
+  incresasesFavorites(title:any){
     let exist= false;
     if (this.hasResults)  {                           
-      this.starOn=true; 
-      if (this.favorites){
-        this.favorites.forEach(item =>{ console.log(item);
-          if (item.name ==fav){
-/*             item.count=item.count+1;
- */             exist=true;
-                item.count++;
-            return;
+        this.starOn=true; 
+        this.favorites.forEach(item =>{ 
+          if (item.name ==title.value){
+            exist=true;
+            item.count++;
           }
         })
-        if (exist){                 console.warn("exist");//
-
-          //this.favorites.push({name:fav, count:1});
-        }
-/*         this.sortFavorites(this.favorites,this.count)
- */      }
-      else{
-        this.favorites.push({name:fav, count:1});
-      }
+        if(!exist && this.addItem) {
+          this.favorites.push({name:title.value, count:1});
+        } 
     }
+    else return;
     this.favorites.sort(function (a, b) {
-      if (a.count > b.count) {
-        return -1;
-      }
-      if (a.count < b.count) {
-        return 1;
-      }
-      // a must be equal to b
+      if (a.count > b.count) return -1;
+      if (a.count < b.count) return 1;     
       return 0;
     });
-    console.log(this.favorites);//
-
   }
 
-  
-  sortFavorites(data, count) {
-    return data.sort(function (a, b) {
-        var x = a[count],
-        y = b[count];
-        return ((x < y) ? -1 : ((x > y) ? 1 : 0));
-        
-    });
-  };
+
+
 }

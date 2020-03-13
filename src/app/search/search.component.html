@@ -9,13 +9,13 @@
                         <p class="mb-0"> Search by title </p>
                         <div class="input-group mb-3 mt-0">
                             <input [formControl]="title" (keyup)="getMovies(title)" placeholder="Search..." type="text"
-                                class="form-control" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                class="form-control my-0" aria-label="Search" aria-describedby="basic-addon2">
                             <div class="input-group-append" >
                                 <span (click)="addFavorite(title)"  class="input-group-text " id="basic-addon2">
-                                    <ng-template [ngIf]="!starOn">
-                                        <i class="material-icons  "> star_border </i>
+                                    <ng-template [ngIf]="!starOn" class="p-0 m-0 ">
+                                        <i class="material-icons "> star_border </i>
                                     </ng-template>
-                                    <ng-template [ngIf]="starOn">
+                                    <ng-template [ngIf]="starOn" class="p-0 m-0">
                                         <i class="material-icons  "> star </i>
                                     </ng-template>
                                 </span>
@@ -30,17 +30,17 @@
                     </button>
 
                     <div class="collapse navbar-collapse py-0 my-0" id="navbarSupportedContent">
-                        <p class="my-0">Your 3 most favorite searches </p> 
-
+<!--                         <p class="my-0">Your 3 most favorite searches </p> 
+ -->
                         <ul class="navbar-nav mx-auto">
-                            <li class="nav-item " >
-                                <a  class="nav-link" href="#">{{favorites[0].name}}{{favorites[0].count}}</a>
+                            <li class="nav-item bg-danger " >
+                                <a  class="nav-link  text-white" href="#">{{favorites[0].name}} <span class="counter">(  {{favorites[0].count}} )</span></a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">{{favorites[1].name}}{{favorites[1].count}}</a>
+                            <li class="nav-item bg-danger ">
+                                <a class="nav-link text-white" href="#">{{favorites[1].name}}  <span class="counter">(  {{favorites[1].count}} )</span></a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">{{favorites[2].name}}{{favorites[2].count}}</a>
+                            <li class="nav-item bg-danger ">
+                                <a class="nav-link text-white" href="#">{{favorites[2].name}}  <span class="counter">(  {{favorites[2].count}} )</span></a>
                             </li>
                         </ul>
                     </div>
@@ -53,7 +53,7 @@
                 <div class="bg-white tm-block h-100 pt-3">
                     <div class="row">
                         <div class="col-md-8 col-sm-12">
-                            <h2 class="tm-block-title d-inline-block mb-3">Search results</h2>
+                            <h2 class="tm-block-title d-inline-block mb-3 ">Search results</h2>
                         </div>
                     </div>
                     <div class="table-responsive" id="searchResults">
@@ -74,7 +74,7 @@
 
             <div id="details" class="col-xl-4 col-lg-12 tm-md-12 tm-sm-12 tm-col">
                 <div class="bg-white tm-block h-100 pt-3">
-                    <h2 class="tm-block-title d-inline-block mb-3">detail</h2>
+                    <h2 class="tm-block-title d-inline-block mb-3 ">detail</h2>
                     <div *ngIf="details">
 
                         <div class="row  justify-content-center" id="poster">
@@ -101,20 +101,6 @@
                 </div>
             </div>
         </div><!-- row -->
-        <!--         <div class="row ">
-            <p class="d-inline-block tm-bg-black text-white py-2 px-4">
-                Created by Jordi González Vergés | email: jgverges@yahoo.es |telf: 647890286 
-            </p>
-
-        </div>
-        <footer class="row tm-mt-small">
-            <div class="col-12 font-weight-light">
-                <p class="d-inline-block tm-bg-black text-white py-2 px-4">
-                    Created by Jordi González Vergés | email: jgverges@yahoo.es |telf: 647890286 
-                </p>
-            </div>
-        </footer>
- -->
     </div>
 
     <script src="js/jquery-3.3.1.min.js"></script>

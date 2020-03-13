@@ -6,6 +6,7 @@ import { ReactiveFormsModule} from '@angular/forms';
 import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { SearchComponent } from './search/search.component';
+
 @NgModule({
   declarations: [
     AppComponent,
