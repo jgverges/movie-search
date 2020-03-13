@@ -1,9 +1,9 @@
 import { AppComponent } from './app.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule} from '@angular/common/http';
-import { ReactiveFormsModule} from '@angular/forms';
-import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { SearchComponent } from './search/search.component';
 
@@ -17,7 +17,7 @@ import { SearchComponent } from './search/search.component';
     AppRoutingModule,
     HttpClientModule,
     NgbModule,
-    ReactiveFormsModule    
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,3 +1,4 @@
+/* For calls to api by search */
 
 export class Search {
     

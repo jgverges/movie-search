@@ -1,8 +1,7 @@
 <section>
     <div class="container">
-        <div class="row backs" >
+        <div class="row">
             <div class="col-12 ">
-
                 <h1 class="tm-site-title mb-0 mt-3">Movie Search Application</h1>
                 <nav class="navbar navbar-expand-xl  bg-light mt-3 ">
                     <div id="search" class="col-md-6 pt-2">
@@ -10,8 +9,8 @@
                         <div class="input-group mb-3 mt-0">
                             <input [formControl]="title" (keyup)="getMovies(title)" placeholder="Search..." type="text"
                                 class="form-control my-0" aria-label="Search" aria-describedby="basic-addon2">
-                            <div class="input-group-append" >
-                                <span (click)="addFavorite(title)"  class="input-group-text " id="basic-addon2">
+                            <div class="input-group-append">
+                                <span (click)="addFavorite(title)" class="input-group-text " id="basic-addon2">
                                     <ng-template [ngIf]="!starOn" class="p-0 m-0 ">
                                         <i class="material-icons "> star_border </i>
                                     </ng-template>
@@ -22,23 +21,24 @@
                             </div>
                         </div>
                     </div>
-
                     <button class="navbar-toggler ml-auto mr-0" type="button" data-toggle="collapse"
                         data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-
                     <div class="collapse navbar-collapse py-0 my-0" id="navbarSupportedContent">
                         <ul id="mostFav" class="navbar-nav mx-auto">
                             <li class="nav-item  most " *ngIf="favorites[0].name">
-                                <a  class="nav-link bg-secondary text-white" href="#">{{favorites[0].name}} <span class="counter"> <sub>{{favorites[0].count}}</sub> </span></a>
+                                <a class="nav-link bg-secondary text-white" href="#">{{favorites[0].name}} <span
+                                        class="counter"> <sub> {{favorites[0].count}}</sub> </span></a>
                             </li>
-                            <li class="nav-item  most"  *ngIf="favorites[1].name">
-                                <a class="nav-link bg-secondary text-white" href="#">{{favorites[1].name}}  <span class="counter"><sub> {{favorites[1].count}}</sub>  </span></a>
+                            <li class="nav-item  most" *ngIf="favorites[1].name">
+                                <a class="nav-link bg-secondary text-white" href="#">{{favorites[1].name}} <span
+                                        class="counter"><sub> {{favorites[1].count}}</sub> </span></a>
                             </li>
-                            <li class="nav-item  most"  *ngIf="favorites[2].name">
-                                <a class="nav-link bg-secondary text-white" href="#">{{favorites[2].name}}  <span class="counter"><sub> {{favorites[2].count}}</sub>  </span></a>
+                            <li class="nav-item  most" *ngIf="favorites[2].name">
+                                <a class="nav-link bg-secondary text-white" href="#">{{favorites[2].name}} <span
+                                        class="counter"><sub> {{favorites[2].count}}</sub> </span></a>
                             </li>
                         </ul>
                     </div>
@@ -69,7 +69,6 @@
                     </div>
                 </div>
             </div>
-
             <div id="details" class="col-xl-4 col-lg-12 tm-md-12 tm-sm-12 tm-col">
                 <div class="bg-white tm-block h-100 pt-3">
                     <h2 class="tm-block-title d-inline-block mb-3 ">Detail</h2>

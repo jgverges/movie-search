@@ -94,7 +94,7 @@ COLOR CODES
   .tm-content-row {
     justify-content: space-between;
     margin-left: -20px;
-    margin-right: -20px; /* To offset col padding */
+    margin-right: -20px; 
   }
   
   .tm-col {
@@ -170,7 +170,7 @@ COLOR CODES
     height: 50px;
   }
   .counter{
-      font-size: 4px;
+      font-size: 3px;
   }
   .most{
     border-radius: 7px !important;
@@ -179,9 +179,6 @@ COLOR CODES
     color:white !important;;
     font-weight: bolder !important;;
   }
-  /* .backs{
-    background: yellow !important;
-  } */
   label {
     margin-bottom: 18px;
   }
@@ -213,8 +210,7 @@ COLOR CODES
     border-color: #999999;
   }
   h1{
-/*     color:rgba(185, 226, 90, 0.9)!important;
- */    color:rgba(185, 226, 90, 0.9)!important;
+    color:rgba(185, 226, 90, 0.9)!important;
   }
   h2{
     color:rgb(80, 129, 27) !important;
