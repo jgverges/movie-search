@@ -6,7 +6,7 @@
     *Bootstrap
 
 ## OMDb API
-### Two  API calls:
+#### Two  API calls:
     *by search : has Search field. Returns Array,
     *by id / title: without Search field. Returns JSON. 
 
