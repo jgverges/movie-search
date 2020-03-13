@@ -1,10 +1,10 @@
 <section>
     <div class="container">
-        <div class="row">
+        <div class="row backs" >
             <div class="col-12 ">
 
                 <h1 class="tm-site-title mb-0 mt-3">Movie Search Application</h1>
-                <nav class="navbar navbar-expand-xl navbar-light bg-light mt-3">
+                <nav class="navbar navbar-expand-xl  bg-light mt-3 ">
                     <div id="search" class="col-md-6 pt-2">
                         <p class="mb-0"> Search by title </p>
                         <div class="input-group mb-3 mt-0">
@@ -30,17 +30,15 @@
                     </button>
 
                     <div class="collapse navbar-collapse py-0 my-0" id="navbarSupportedContent">
-<!--                         <p class="my-0">Your 3 most favorite searches </p> 
- -->
-                        <ul class="navbar-nav mx-auto">
-                            <li class="nav-item bg-danger " >
-                                <a  class="nav-link  text-white" href="#">{{favorites[0].name}} <span class="counter">(  {{favorites[0].count}} )</span></a>
+                        <ul id="mostFav" class="navbar-nav mx-auto">
+                            <li class="nav-item  most " *ngIf="favorites[0].name">
+                                <a  class="nav-link bg-secondary text-white" href="#">{{favorites[0].name}} <span class="counter"> <sub>{{favorites[0].count}}</sub> </span></a>
                             </li>
-                            <li class="nav-item bg-danger ">
-                                <a class="nav-link text-white" href="#">{{favorites[1].name}}  <span class="counter">(  {{favorites[1].count}} )</span></a>
+                            <li class="nav-item  most"  *ngIf="favorites[1].name">
+                                <a class="nav-link bg-secondary text-white" href="#">{{favorites[1].name}}  <span class="counter"><sub> {{favorites[1].count}}</sub>  </span></a>
                             </li>
-                            <li class="nav-item bg-danger ">
-                                <a class="nav-link text-white" href="#">{{favorites[2].name}}  <span class="counter">(  {{favorites[2].count}} )</span></a>
+                            <li class="nav-item  most"  *ngIf="favorites[2].name">
+                                <a class="nav-link bg-secondary text-white" href="#">{{favorites[2].name}}  <span class="counter"><sub> {{favorites[2].count}}</sub>  </span></a>
                             </li>
                         </ul>
                     </div>
@@ -74,7 +72,7 @@
 
             <div id="details" class="col-xl-4 col-lg-12 tm-md-12 tm-sm-12 tm-col">
                 <div class="bg-white tm-block h-100 pt-3">
-                    <h2 class="tm-block-title d-inline-block mb-3 ">detail</h2>
+                    <h2 class="tm-block-title d-inline-block mb-3 ">Detail</h2>
                     <div *ngIf="details">
 
                         <div class="row  justify-content-center" id="poster">
