@@ -15,6 +15,7 @@ export class SearchComponent  {
   details: Movie;
   title =  new FormControl('');
   hasResults = false;
+  starOn=false;
   favorites:Favorite[]=[];
 
   constructor(private movieService: MovieService /* ,
@@ -22,6 +23,7 @@ export class SearchComponent  {
 
   getMovies(title){
     this.hasResults = false;
+    this.starOn= false;
     this.movieService.getByTitle(title.value).subscribe(data =>{
       if (data['Response']=="True"){
         this.movies=data['Search'];
@@ -39,11 +41,11 @@ export class SearchComponent  {
     });
   };
 
-  addFavorite(title){
+  addFavorite(title){  
     let fav=title.value;
-    console.log(fav,this.favorites);
+    console.log(this.hasResults ,fav,this.favorites);   
 
-    if (this.hasResults)  {
+    if (this.hasResults)  { this.starOn=true; ///////
       if (this.favorites){
         this.favorites.forEach(item =>{
           if (item.name ==fav){

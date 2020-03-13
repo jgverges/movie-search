@@ -4,16 +4,20 @@
             <div class="col-12 ">
 
                 <h1 class="tm-site-title mb-0 mt-3">Movie Search Application</h1>
-
                 <nav class="navbar navbar-expand-xl navbar-light bg-light mt-3">
                     <div id="search" class="col-md-6 pt-2">
                         <p class="mb-0"> Search by title </p>
                         <div class="input-group mb-3 mt-0">
                             <input [formControl]="title" (keyup)="getMovies(title)" placeholder="Search..." type="text"
                                 class="form-control" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                            <div class="input-group-append bg-danger" >
-                                <span (click)="addFavorite(title)"  class="input-group-text bg-success" id="basic-addon2">
-                                    <i class="material-icons bg-primary "> star_border </i>
+                            <div class="input-group-append" >
+                                <span (click)="addFavorite(title)"  class="input-group-text " id="basic-addon2">
+                                    <ng-template [ngIf]="!starOn">
+                                        <i class="material-icons  "> star_border </i>
+                                    </ng-template>
+                                    <ng-template [ngIf]="starOn">
+                                        <i class="material-icons  "> star </i>
+                                    </ng-template>
                                 </span>
                             </div>
                         </div>
