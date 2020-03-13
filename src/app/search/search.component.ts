@@ -27,12 +27,10 @@ export class SearchComponent  {
       if (data['Response']=="True"){
         this.movies=data['Search'];
         this.hasResults = true;
-        }
+        this.addItem=false;
+        this.incresasesFavorites(title);
+          }
     });
-    if (this.hasResults){
-      this.addItem=false;
-      this.incresasesFavorites(title);
-      }
   }
 
   getDetails(imdbID:string){

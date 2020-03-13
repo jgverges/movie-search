@@ -7,7 +7,6 @@ COLOR CODES
   Blue: #0062BB
   
 */
-
  
  a {
     transition: all 0.3s ease;
@@ -171,8 +170,18 @@ COLOR CODES
     height: 50px;
   }
   .counter{
-      font-size: 7px;
+      font-size: 4px;
   }
+  .most{
+    border-radius: 7px !important;
+    margin-left:7px;
+    background-color:rgb(252, 248, 210) !important;
+    color:white !important;;
+    font-weight: bolder !important;;
+  }
+  /* .backs{
+    background: yellow !important;
+  } */
   label {
     margin-bottom: 18px;
   }
@@ -203,7 +212,14 @@ COLOR CODES
     background-color: #cdd4da;
     border-color: #999999;
   }
-  
+  h1{
+/*     color:rgba(185, 226, 90, 0.9)!important;
+ */    color:rgba(185, 226, 90, 0.9)!important;
+  }
+  h2{
+    color:rgb(80, 129, 27) !important;
+    font-weight: bolder;
+ }
   .btn-danger {
     color: #9f1321;
     background-color: transparent;
