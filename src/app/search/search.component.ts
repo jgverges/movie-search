@@ -3,8 +3,7 @@ import { FormControl } from '@angular/forms';
 /* owns */
 import { Movie } from '../model/movie';
 import { MovieService } from '../service/movie.service';
-/* import { DetailService } from '../service/detail.service';
- */
+import { Favorite} from '../model/favorite';
 
 @Component({
   selector: 'app-search',
@@ -16,7 +15,7 @@ export class SearchComponent  {
   details: Movie;
   title =  new FormControl('');
   hasResults = false;
-  favorites=[];
+  favorites:Favorite[]=[];
 
   constructor(private movieService: MovieService /* ,
               private detailService:DetailService  */) {}
@@ -41,10 +40,28 @@ export class SearchComponent  {
   };
 
   addFavorite(title){
+    let fav=title.value;
+    console.log(fav,this.favorites);
+
     if (this.hasResults)  {
-      this.favorites.push(title.value)
-    };
-  }
+      if (this.favorites){
+        this.favorites.forEach(item =>{
+          if (item.name ==fav){
+            item.count=item.count+1;
+            console.warn(item.count);
+            return;
+          }
+          else{
+            this.favorites.push({name:fav, count:1});
+          }
+          })
+          console.log(this.favorites);
+        }; 
+      }
+      else{
+        this.favorites.push({name:fav, count:1});
+      }
+    }
 
   getDetails(imdbID){
     this.movieService.getByImdbIDd(imdbID).subscribe(data =>{

@@ -11,9 +11,9 @@
                         <div class="input-group mb-3 mt-0">
                             <input [formControl]="title" (keyup)="getMovies(title)" placeholder="Search..." type="text"
                                 class="form-control" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <span (click)="addFavorite(title)" id="star" class="input-group-text" id="basic-addon2">
-                                    <i class="material-icons"> star_border </i>
+                            <div class="input-group-append bg-danger" >
+                                <span (click)="addFavorite(title)"  class="input-group-text bg-success" id="basic-addon2">
+                                    <i class="material-icons bg-primary "> star_border </i>
                                 </span>
                             </div>
                         </div>
@@ -29,16 +29,16 @@
                         <p class="my-0">Your 3 most favorite searches </p>
 
                         <ul class="navbar-nav mx-auto">
-                            <li class="nav-item ">
-                                <a class="nav-link" href="#">{{favorites[0]}}</a>
+                            <li class="nav-item " >
+<!--                                 <a *ngIf="favorites" class="nav-link" href="#">{{favorites[0]}}</a>
+ -->                            </li>
+<!--                             <li class="nav-item">
+                                <a class="nav-link" href="#">{{favorites[1].favWord}}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">{{favorites[1]}}</a>
+                                <a class="nav-link" href="#">{{favorites[2].favWord}}</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">{{favorites[2]}}</a>
-                            </li>
-                        </ul>
+ -->                        </ul>
                     </div>
                 </nav>
             </div>
